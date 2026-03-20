@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicio de Impresión 3D</title>
+
+<style>
+:root {
+  --primary: #2563eb;
+  --secondary: #1e293b;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background: var(--secondary);
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+footer {
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Servicio de Impresión 3D</h1>
+  <p>Convierte tus ideas en realidad</p>
+</header>
+
+<nav>
+  <a href="#servicios">Servicios</a>
+  <a href="#cotizar">Cotizar</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<div class="container">
+
+  <div id="servicios" class="card">
+    <h2>Servicios</h2>
+    <ul>
+      <li>Impresión en PLA</li>
+      <li>Impresión en resina</li>
+      <li>Modelado 3D</li>
+      <li>Prototipos</li>
+    </ul>
+  </div>
+
+  <div id="cotizar" class="card">
+    <h2>Calculadora de Cotización</h2>
+
+    <label>Tamaño de la pieza (cm)</label>
+    <input type="number" id="size" placeholder="Ej: 10">
+
+    <label>Material</label>
+    <select id="material">
+      <option value="10">PLA ($10/cm)</option>
+      <option value="20">Resina ($20/cm)</option>
+    </select>
+
+    <button onclick="calcular()">Calcular Precio</button>
+
+    <h3 id="resultado"></h3>
+  </div>
+
+  <div id="contacto" class="card">
+    <h2>Contacto</h2>
+    <p>Email: contacto@impresion3d.com</p>
+    <p>WhatsApp: 55 1234 5678</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Impresión 3D | Todos los derechos reservados</p>
+</footer>
+
+<script>
+function calcular() {
+  let size = document.getElementById("size").value;
+  let material = document.getElementById("material").value;
+
+  if(size === "") {
+    alert("Ingresa un tamaño");
+    return;
+  }
+
+  let precio = size * material;
+  document.getElementById("resultado").innerText = "Precio estimado: $" + precio;
+}
+</script>
+
+</body>
+</html>
